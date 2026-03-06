@@ -283,6 +283,9 @@ end
         function table_lv:cb_on_production(timer_step)
 	    return ia_util.appliances_cb_on_production(self, timer_step)
 	end
+	function table_lv:get_formspec(meta, production_percent, consumption_percent)
+	    return ia_util.appliances_get_formspec(self, meta, production_percent, consumption_percent)
+        end
     end
 
     -- 5. Register Nodes
