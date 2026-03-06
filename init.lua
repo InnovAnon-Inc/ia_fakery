@@ -6,9 +6,13 @@ minetest.register_craftitem("fakery:mese", {
 	description = "Mese Crystal",
 	inventory_image = "default_mese_crystal.png",
 })
-minetest.register_craftitem("fakery:Obsidian", {
+minetest.register_craftitem("fakery:obsidian", {
 	description = "Obsidian Shard",
 	inventory_image = "default_obsidian_shard.png",
+})
+minetest.register_craftitem("fakery:gold", {
+	description = "Gold Ingot",
+	inventory_image = "default_gold_ingot.png",
 })
 if minetest.get_modpath("moreores") then
 	minetest.register_craftitem("fakery:mithril", {
@@ -93,6 +97,7 @@ local function craft(pos)
 	register_recipe("dye:yellow",fake_item,"fakery:mese",pos) -- default:mese_crystal
 	register_recipe("dye:cyan",fake_item,"fakery:diamond",pos)
 	register_recipe("dye:black",fake_item,"fakery:obsidian",pos) -- default:obsidian_shard
+	register_recipe("dye:orange",fake_item,"fakery:gold",pos) -- default:gold_ingot
 	if minetest.get_modpath("moreores") then register_recipe("dye:blue",fake_item,"fakery:mithril",pos) end
 	if minetest.get_modpath("cloud_items") then register_recipe("dye:white",fake_item,"fakery:cloud",pos) end
 	if minetest.get_modpath("lavastuff") then register_recipe("dye:red",fake_item,"fakery:lava",pos) end
@@ -254,6 +259,7 @@ end
     add_auto_recipe("dye:yellow", "fakery:mese") -- default:mese_crystal
     add_auto_recipe("dye:cyan",   "fakery:diamond")
     add_auto_recipe("dye:black",  "fakery:obsidian") -- default:obsidian_shard
+    add_auto_recipe("dye:orange", "fakery:gold") -- default:gold_ingot
     
     if minetest.get_modpath("moreores") then 
         add_auto_recipe("dye:blue", "fakery:mithril") 
