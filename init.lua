@@ -180,7 +180,7 @@ end
         have_usage         = false,
 
         output_stack       = "output",
-        output_stack_size  = 4, -- NOTE changing this doesn't work, either... why?
+        output_stack_size  = 4, -- NOTE changing this doesn't work, either... why? -- NOTE this is probably the number of items produced
     
 	--stoppable_production  = true
 	--stoppable_consumption = true
@@ -240,11 +240,12 @@ end
 ----        end
 ----    end
     local function add_auto_recipe(dye, result)
+    assert(minetest.registered_items[result])
     if minetest.registered_items[result] then
         -- The Appliances API uses table.insert for size > 1
         -- which matches recipes based on the index of the 'inputs' table.
         table_lv:recipe_register_input("", {
-            inputs = {
+            inputs = { -- takes a table because input_stack_size > 1
                 [1] = dye,           -- Explicitly slot 1
                 [2] = fake_item -- Explicitly slot 2
             },
