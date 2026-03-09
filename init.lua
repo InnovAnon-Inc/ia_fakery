@@ -191,8 +191,6 @@ end
     	--control_connect_sides = {'right', 'left', 'front', 'back', 'top', 'bottom'}
     	--meta_infotext         = 'infotext'
 
-    	-- FIXME no way to connect tube to output ?
-
     	--have_control
     })
 
@@ -275,7 +273,7 @@ end
         add_auto_recipe("dye:green", "fakery:op") 
     end
     if minetest.get_modpath("technic_worldgen") then
-	add_auto_recipe("dye:dark_green",fake_item,"fakery:uranium",pos) -- technic:uranium_lump -- TODO switch green shades ?
+	add_auto_recipe("dye:dark_green","fakery:uranium") -- technic:uranium_lump -- TODO switch green shades ?
     end
 
     -- [2026-03-06] Fixed cb_on_production signature to match Appliances API (appliance.lua:1119)
@@ -287,6 +285,15 @@ end
 	function table_lv:get_formspec(meta, production_percent, consumption_percent)
 	    return ia_util.appliances_get_formspec(self, meta, production_percent, consumption_percent)
         end
+	--function table_lv:recipe_aviable_input(inventory)
+	--    return ia_util.appliances_recipe_aviable_input(self, inventory)
+	--end
+	--function table_lv:recipe_inventory_can_put(pos, listname, index, stack, player_name)
+	--    return ia_util.appliances_recipe_inventory_can_put(self, pos, listname, index, stack, player_name)
+	--end
+	--function table_lv:recipe_inventory_can_take(pos, listname, index, stack, player_name)
+	--    return ia_util.appliances_recipe_inventory_can_take(self, pos, listname, index, stack, player_name)
+	--end
     end
 
     -- 5. Register Nodes
